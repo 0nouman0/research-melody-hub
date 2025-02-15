@@ -31,53 +31,53 @@ const researchTracks: Track[] = [
   },
   {
     id: 2,
-    title: "ಆರೋಗ್ಯ ಸಂಶೋಧನೆ - Healthcare Research",
-    image: "https://placehold.co/400x400/1DB954/ffffff?text=Healthcare",
-    authors: "Dr. Shwetha Rao",
+    title: "ವ್ಯಾಪಾರ ಪ್ರವೃತ್ತಿಗಳು - Business Trends",
+    image: "https://placehold.co/400x400/1DB954/ffffff?text=Business",
+    authors: "Dr. Ramesh Hegde",
     audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/ImperialMarch60.wav",
     duration: "12:45",
     type: 'research',
     language: 'kannada',
-    category: 'healthcare'
+    category: 'business'
   },
   {
     id: 3,
-    title: "அரசியல் ஆய்வு - Political Analysis",
-    image: "https://placehold.co/400x400/1DB954/ffffff?text=Politics",
+    title: "வணிக போக்குகள் - Business Analysis",
+    image: "https://placehold.co/400x400/1DB954/ffffff?text=Business",
     authors: "Dr. Senthil Kumar",
     audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/PinkPanther60.wav",
     duration: "14:20",
     type: 'research',
     language: 'tamil',
-    category: 'politics'
+    category: 'business'
   },
   {
     id: 4,
-    title: "సైన్స్ అప్‌డేట్స్ - Science Updates",
-    image: "https://placehold.co/400x400/1DB954/ffffff?text=Science",
+    title: "വാണിജ്യ വിപണി - Commerce Market",
+    image: "https://placehold.co/400x400/1DB954/ffffff?text=Commerce",
     authors: "Dr. Priya Reddy",
     audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav",
     duration: "11:15",
     type: 'research',
     language: 'telugu',
-    category: 'science'
+    category: 'commerce'
   },
   {
     id: 5,
-    title: "खेल विश्लेषण - Sports Analysis",
-    image: "https://placehold.co/400x400/1DB954/ffffff?text=Sports",
+    title: "वाणिज्य विश्लेषण - Commerce Analysis",
+    image: "https://placehold.co/400x400/1DB954/ffffff?text=Commerce",
     authors: "Dr. Amit Sharma",
     audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/gettysburg10.wav",
     duration: "13:30",
     type: 'research',
     language: 'hindi',
-    category: 'sports'
+    category: 'commerce'
   },
   {
     id: 6,
-    title: "ವಾಣಿಜ್ಯ ವರದಿ - Commerce Report",
+    title: "वಾಣಿಜ್ಯ ನಿರ್ಣಯ - Commerce Report",
     image: "https://placehold.co/400x400/1DB954/ffffff?text=Commerce",
-    authors: "Dr. Ramesh Hegde",
+    authors: "Dr. Kiran Kumar",
     audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/tada.wav",
     duration: "16:45",
     type: 'research',
@@ -86,69 +86,168 @@ const researchTracks: Track[] = [
   },
   {
     id: 7,
-    title: "தொழில்நுட்ப முன்னேற்றம் - Tech Advancement",
-    image: "https://placehold.co/400x400/1DB954/ffffff?text=Tech",
+    title: "मनोरंjang समाचार - Entertainment News",
+    image: "https://placehold.co/400x400/1DB954/ffffff?text=Entertainment",
     authors: "Dr. Karthik Raja",
     audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/CantinaBand60.wav",
     duration: "10:15",
     type: 'research',
-    language: 'tamil',
-    category: 'science'
+    language: 'hindi',
+    category: 'entertainment'
   },
   {
     id: 8,
-    title: "వ్యాపార అవకాశాలు - Business Opportunities",
-    image: "https://placehold.co/400x400/1DB954/ffffff?text=Business",
+    title: "பொழுதுபோக்கு - Entertainment Update",
+    image: "https://placehold.co/400x400/1DB954/ffffff?text=Entertainment",
     authors: "Dr. Ravi Krishna",
     audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/gettysburg.wav",
     duration: "18:20",
     type: 'research',
-    language: 'telugu',
-    category: 'business'
+    language: 'tamil',
+    category: 'entertainment'
   },
   {
     id: 9,
-    title: "स्वास्थ्य अनुसंधान - Health Research",
-    image: "https://placehold.co/400x400/1DB954/ffffff?text=Health",
+    title: "వినోద వార్తలు - Entertainment Report",
+    image: "https://placehold.co/400x400/1DB954/ffffff?text=Entertainment",
     authors: "Dr. Priya Gupta",
     audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/BabyElephantWalk60.wav",
     duration: "15:45",
+    type: 'research',
+    language: 'telugu',
+    category: 'entertainment'
+  },
+  {
+    id: 10,
+    title: "स्वास्थ्य जागरूकता - Healthcare Awareness",
+    image: "https://placehold.co/400x400/1DB954/ffffff?text=Healthcare",
+    authors: "Dr. Suresh Kumar",
+    audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/ImperialMarch60.wav",
+    duration: "12:30",
     type: 'research',
     language: 'hindi',
     category: 'healthcare'
   },
   {
-    id: 10,
-    title: "ಮನರಂಜನೆ ವಿಶ್ಲೇಷಣೆ - Entertainment Analysis",
-    image: "https://placehold.co/400x400/1DB954/ffffff?text=Entertainment",
-    authors: "Dr. Kiran Kumar",
-    audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/ImperialMarch60.wav",
-    duration: "12:30",
-    type: 'research',
-    language: 'kannada',
-    category: 'entertainment'
-  },
-  {
     id: 11,
-    title: "விளையாட்டு செய்திகள் - Sports News",
-    image: "https://placehold.co/400x400/1DB954/ffffff?text=Sports",
+    title: "ആരോഗ്യ സംരക്ഷണം - Healthcare Update",
+    image: "https://placehold.co/400x400/1DB954/ffffff?text=Healthcare",
     authors: "Dr. Vijay Kumar",
     audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/PinkPanther60.wav",
     duration: "14:50",
     type: 'research',
     language: 'tamil',
-    category: 'sports'
+    category: 'healthcare'
   },
   {
     id: 12,
-    title: "రాజకీయ విశ్లేషణ - Political Analysis",
-    image: "https://placehold.co/400x400/1DB954/ffffff?text=Politics",
+    title: "ఆరోగ్య సంരక్షण - Healthcare Analysis",
+    image: "https://placehold.co/400x400/1DB954/ffffff?text=Healthcare",
     authors: "Dr. Srinivas Reddy",
     audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav",
     duration: "16:15",
     type: 'research',
     language: 'telugu',
+    category: 'healthcare'
+  },
+  {
+    id: 13,
+    title: "राजनीतिक विश्लेषण - Political Analysis",
+    image: "https://placehold.co/400x400/1DB954/ffffff?text=Politics",
+    authors: "Dr. Ramesh Sharma",
+    audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/gettysburg10.wav",
+    duration: "13:20",
+    type: 'research',
+    language: 'hindi',
     category: 'politics'
+  },
+  {
+    id: 14,
+    title: "రాజకీయ అధ్యయనం - Political Study",
+    image: "https://placehold.co/400x400/1DB954/ffffff?text=Politics",
+    authors: "Dr. Krishna Reddy",
+    audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/tada.wav",
+    duration: "11:45",
+    type: 'research',
+    language: 'telugu',
+    category: 'politics'
+  },
+  {
+    id: 15,
+    title: "அரசியல் ஆய்வு - Political Research",
+    image: "https://placehold.co/400x400/1DB954/ffffff?text=Politics",
+    authors: "Dr. Tamil Selvan",
+    audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/CantinaBand60.wav",
+    duration: "15:30",
+    type: 'research',
+    language: 'tamil',
+    category: 'politics'
+  },
+  {
+    id: 16,
+    title: "विज्ञान अनुसंधान - Science Research",
+    image: "https://placehold.co/400x400/1DB954/ffffff?text=Science",
+    authors: "Dr. Anil Kumar",
+    audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/gettysburg.wav",
+    duration: "14:15",
+    type: 'research',
+    language: 'hindi',
+    category: 'science'
+  },
+  {
+    id: 17,
+    title: "वಿಜ್ಞಾನ ಅಧ್ಯಯನ - Science Study",
+    image: "https://placehold.co/400x400/1DB954/ffffff?text=Science",
+    authors: "Dr. Shivakumar",
+    audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/BabyElephantWalk60.wav",
+    duration: "12:40",
+    type: 'research',
+    language: 'kannada',
+    category: 'science'
+  },
+  {
+    id: 18,
+    title: "అభివృద్ధి శాస్త్రం - Science Development",
+    image: "https://placehold.co/400x400/1DB954/ffffff?text=Science",
+    authors: "Dr. Venkat Rao",
+    audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/ImperialMarch60.wav",
+    duration: "13:55",
+    type: 'research',
+    language: 'telugu',
+    category: 'science'
+  },
+  {
+    id: 19,
+    title: "खेल समीक्षा - Sports Review",
+    image: "https://placehold.co/400x400/1DB954/ffffff?text=Sports",
+    authors: "Dr. Rahul Verma",
+    audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/PinkPanther60.wav",
+    duration: "11:25",
+    type: 'research',
+    language: 'hindi',
+    category: 'sports'
+  },
+  {
+    id: 20,
+    title: "క్రీడా విశ్లేషణ - Sports Analysis",
+    image: "https://placehold.co/400x400/1DB954/ffffff?text=Sports",
+    authors: "Dr. Suresh Reddy",
+    audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav",
+    duration: "14:30",
+    type: 'research',
+    language: 'telugu',
+    category: 'sports'
+  },
+  {
+    id: 21,
+    title: "விளையாட்டு ஆய்வு - Sports Study",
+    image: "https://placehold.co/400x400/1DB954/ffffff?text=Sports",
+    authors: "Dr. Raja Kumar",
+    audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/gettysburg10.wav",
+    duration: "12:50",
+    type: 'research',
+    language: 'tamil',
+    category: 'sports'
   }
 ];
 
