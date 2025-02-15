@@ -1,8 +1,7 @@
-
 import { useTranslation } from "react-i18next";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { useState } from "react";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { useState, useRef, useEffect } from "react";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Slider } from "@/components/ui/slider";
 import { Play, Pause, SkipBack, SkipForward, Volume2 } from "lucide-react";
 
@@ -11,7 +10,7 @@ interface Track {
   title: string;
   image: string;
   authors?: string;
-  audioUrl?: string;
+  audioUrl: string;
   duration?: string;
   type: 'research' | 'music' | 'podcast';
   language: 'hindi' | 'kannada' | 'tamil' | 'telugu';
@@ -24,7 +23,7 @@ const researchTracks: Track[] = [
     title: "Business Trends in India 2024",
     image: "https://placehold.co/400x400/1DB954/ffffff?text=Business",
     authors: "Dr. Rajesh Kumar",
-    audioUrl: "https://example.com/audio1.mp3",
+    audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/BabyElephantWalk60.wav",
     duration: "15:30",
     type: 'research',
     language: 'hindi',
@@ -35,7 +34,7 @@ const researchTracks: Track[] = [
     title: "ಆರೋಗ್ಯ ಸಂಶೋಧನೆ - Healthcare Research",
     image: "https://placehold.co/400x400/1DB954/ffffff?text=Healthcare",
     authors: "Dr. Shwetha Rao",
-    audioUrl: "https://example.com/audio2.mp3",
+    audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/ImperialMarch60.wav",
     duration: "12:45",
     type: 'research',
     language: 'kannada',
@@ -46,7 +45,7 @@ const researchTracks: Track[] = [
     title: "அரசியல் ஆய்வு - Political Analysis",
     image: "https://placehold.co/400x400/1DB954/ffffff?text=Politics",
     authors: "Dr. Senthil Kumar",
-    audioUrl: "https://example.com/audio3.mp3",
+    audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/PinkPanther60.wav",
     duration: "14:20",
     type: 'research',
     language: 'tamil',
@@ -57,7 +56,7 @@ const researchTracks: Track[] = [
     title: "సైన్స్ అప్‌డేట్స్ - Science Updates",
     image: "https://placehold.co/400x400/1DB954/ffffff?text=Science",
     authors: "Dr. Priya Reddy",
-    audioUrl: "https://example.com/audio4.mp3",
+    audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav",
     duration: "11:15",
     type: 'research',
     language: 'telugu',
@@ -68,7 +67,7 @@ const researchTracks: Track[] = [
     title: "खेल विश्लेषण - Sports Analysis",
     image: "https://placehold.co/400x400/1DB954/ffffff?text=Sports",
     authors: "Dr. Amit Sharma",
-    audioUrl: "https://example.com/audio5.mp3",
+    audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/gettysburg10.wav",
     duration: "13:30",
     type: 'research',
     language: 'hindi',
@@ -79,11 +78,77 @@ const researchTracks: Track[] = [
     title: "ವಾಣಿಜ್ಯ ವರದಿ - Commerce Report",
     image: "https://placehold.co/400x400/1DB954/ffffff?text=Commerce",
     authors: "Dr. Ramesh Hegde",
-    audioUrl: "https://example.com/audio6.mp3",
+    audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/tada.wav",
     duration: "16:45",
     type: 'research',
     language: 'kannada',
     category: 'commerce'
+  },
+  {
+    id: 7,
+    title: "தொழில்நுட்ப முன்னேற்றம் - Tech Advancement",
+    image: "https://placehold.co/400x400/1DB954/ffffff?text=Tech",
+    authors: "Dr. Karthik Raja",
+    audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/CantinaBand60.wav",
+    duration: "10:15",
+    type: 'research',
+    language: 'tamil',
+    category: 'science'
+  },
+  {
+    id: 8,
+    title: "వ్యాపార అవకాశాలు - Business Opportunities",
+    image: "https://placehold.co/400x400/1DB954/ffffff?text=Business",
+    authors: "Dr. Ravi Krishna",
+    audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/gettysburg.wav",
+    duration: "18:20",
+    type: 'research',
+    language: 'telugu',
+    category: 'business'
+  },
+  {
+    id: 9,
+    title: "स्वास्थ्य अनुसंधान - Health Research",
+    image: "https://placehold.co/400x400/1DB954/ffffff?text=Health",
+    authors: "Dr. Priya Gupta",
+    audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/BabyElephantWalk60.wav",
+    duration: "15:45",
+    type: 'research',
+    language: 'hindi',
+    category: 'healthcare'
+  },
+  {
+    id: 10,
+    title: "ಮನರಂಜನೆ ವಿಶ್ಲೇಷಣೆ - Entertainment Analysis",
+    image: "https://placehold.co/400x400/1DB954/ffffff?text=Entertainment",
+    authors: "Dr. Kiran Kumar",
+    audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/ImperialMarch60.wav",
+    duration: "12:30",
+    type: 'research',
+    language: 'kannada',
+    category: 'entertainment'
+  },
+  {
+    id: 11,
+    title: "விளையாட்டு செய்திகள் - Sports News",
+    image: "https://placehold.co/400x400/1DB954/ffffff?text=Sports",
+    authors: "Dr. Vijay Kumar",
+    audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/PinkPanther60.wav",
+    duration: "14:50",
+    type: 'research',
+    language: 'tamil',
+    category: 'sports'
+  },
+  {
+    id: 12,
+    title: "రాజకీయ విశ్లేషణ - Political Analysis",
+    image: "https://placehold.co/400x400/1DB954/ffffff?text=Politics",
+    authors: "Dr. Srinivas Reddy",
+    audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav",
+    duration: "16:15",
+    type: 'research',
+    language: 'telugu',
+    category: 'politics'
   }
 ];
 
@@ -98,24 +163,108 @@ const languages = [
 
 export default function App() {
   const { t } = useTranslation();
-  const [activeCategory, setActiveCategory] = useState<typeof categories[number]>('all'); // Changed default to 'all'
+  const [activeCategory, setActiveCategory] = useState<typeof categories[number]>('all');
   const [activeLanguage, setActiveLanguage] = useState<typeof languages[number]>('hindi');
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
   const [selectedTrack, setSelectedTrack] = useState<Track | null>(null);
-  const [volume, setVolume] = useState(100);
+  const [volume, setVolume] = useState(1);
   const [currentTrack, setCurrentTrack] = useState<Track | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    audioRef.current = new Audio();
+    audioRef.current.volume = volume;
+
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = volume;
+    }
+  }, [volume]);
+
+  useEffect(() => {
+    if (currentTrack && audioRef.current) {
+      audioRef.current.src = currentTrack.audioUrl;
+      if (isPlaying) {
+        audioRef.current.play();
+      }
+    }
+  }, [currentTrack]);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  }, [isPlaying]);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const timeUpdateHandler = () => {
+      setCurrentTime(audio.currentTime);
+      setDuration(audio.duration);
+    };
+
+    const endedHandler = () => {
+      setIsPlaying(false);
+      setCurrentTime(0);
+    };
+
+    audio.addEventListener('timeupdate', timeUpdateHandler);
+    audio.addEventListener('ended', endedHandler);
+    audio.addEventListener('loadedmetadata', timeUpdateHandler);
+
+    return () => {
+      audio.removeEventListener('timeupdate', timeUpdateHandler);
+      audio.removeEventListener('ended', endedHandler);
+      audio.removeEventListener('loadedmetadata', timeUpdateHandler);
+    };
+  }, [currentTrack]);
 
   const togglePlayPause = (track?: Track) => {
-    setIsPlaying(!isPlaying);
-    if (track && !currentTrack) {
-      setCurrentTrack(track);
+    if (track) {
+      if (currentTrack?.id !== track.id) {
+        setCurrentTrack(track);
+        setIsPlaying(true);
+      } else {
+        setIsPlaying(!isPlaying);
+      }
+    } else {
+      setIsPlaying(!isPlaying);
     }
   };
 
   const handleTrackSelect = (track: Track) => {
     setSelectedTrack(track);
     setCurrentTrack(track);
+  };
+
+  const handleTimeChange = (value: number[]) => {
+    const newTime = value[0];
+    setCurrentTime(newTime);
+    if (audioRef.current) {
+      audioRef.current.currentTime = newTime;
+    }
+  };
+
+  const formatTime = (time: number) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
   };
 
   const filteredTracks = researchTracks.filter(track => 
@@ -215,7 +364,14 @@ export default function App() {
           
           <div className="flex w-[40%] flex-col items-center gap-2">
             <div className="flex items-center gap-4">
-              <button className="text-gray-400 hover:text-white">
+              <button 
+                className="text-gray-400 hover:text-white"
+                onClick={() => {
+                  if (audioRef.current) {
+                    audioRef.current.currentTime = 0;
+                  }
+                }}
+              >
                 <SkipBack className="h-5 w-5" />
               </button>
               <button
@@ -233,26 +389,26 @@ export default function App() {
               </button>
             </div>
             <div className="flex w-full items-center gap-2">
-              <span className="text-xs text-gray-400">0:00</span>
+              <span className="text-xs text-gray-400">{formatTime(currentTime)}</span>
               <Slider
                 value={[currentTime]}
-                max={100}
+                max={duration || 100}
                 step={1}
                 className="w-full"
-                onValueChange={(value) => setCurrentTime(value[0])}
+                onValueChange={handleTimeChange}
               />
-              <span className="text-xs text-gray-400">{currentTrack?.duration || "0:00"}</span>
+              <span className="text-xs text-gray-400">{formatTime(duration)}</span>
             </div>
           </div>
           
           <div className="flex w-[30%] items-center justify-end gap-2">
             <Volume2 className="h-5 w-5 text-gray-400" />
             <Slider
-              value={[volume]}
+              value={[volume * 100]}
               max={100}
               step={1}
               className="w-24"
-              onValueChange={(value) => setVolume(value[0])}
+              onValueChange={(value) => setVolume(value[0] / 100)}
             />
           </div>
         </div>
@@ -260,6 +416,7 @@ export default function App() {
 
       <Dialog open={!!selectedTrack} onOpenChange={() => setSelectedTrack(null)}>
         <DialogContent className="max-w-3xl bg-gradient-to-b from-[#282828] to-[#121212]">
+          <DialogTitle className="text-xl font-bold text-white">Now Playing</DialogTitle>
           {selectedTrack && (
             <div className="p-6">
               <div className="flex gap-6">
