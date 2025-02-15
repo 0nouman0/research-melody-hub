@@ -88,7 +88,7 @@ const researchTracks: Track[] = [
 ];
 
 const categories = [
-  'business', 'commerce', 'entertainment', 
+  'all', 'business', 'commerce', 'entertainment', 
   'healthcare', 'politics', 'science', 'sports'
 ] as const;
 
@@ -98,7 +98,7 @@ const languages = [
 
 export default function App() {
   const { t } = useTranslation();
-  const [activeCategory, setActiveCategory] = useState<typeof categories[number]>('business');
+  const [activeCategory, setActiveCategory] = useState<typeof categories[number]>('all'); // Changed default to 'all'
   const [activeLanguage, setActiveLanguage] = useState<typeof languages[number]>('hindi');
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
