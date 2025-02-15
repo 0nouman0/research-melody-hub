@@ -2,7 +2,6 @@
 import { useTranslation } from "react-i18next";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useState } from "react";
-import "./i18n";
 
 const dailyMixes = [
   {
@@ -70,6 +69,11 @@ export default function App() {
   const { t, i18n } = useTranslation();
   const [activePage, setActivePage] = useState("all");
 
+  const handleLanguageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const newLang = event.target.value;
+    i18n.changeLanguage(newLang);
+  };
+
   return (
     <div className="min-h-screen bg-[#121212] text-white">
       <header className="sticky top-0 z-50 bg-[#121212] p-4">
@@ -94,7 +98,7 @@ export default function App() {
           </button>
           <div className="ml-auto">
             <select
-              onChange={(e) => i18n.changeLanguage(e.target.value)}
+              onChange={handleLanguageChange}
               className="rounded-full bg-black px-4 py-2 text-white"
               value={i18n.language}
             >
